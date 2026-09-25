@@ -33,6 +33,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Controls\src\Core\Controls.Core.csproj" />
 		<ProjectReference Include="..\..\..\Core\src\Core.csproj" />
+		<ProjectReference Include="..\..\..\Essentials\src\Essentials.csproj"
+		                  Condition="'$(IncludeFreeBSDNativeAssets)' == 'true'" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(_MauiDesignDllBuild)' == 'True' and '$(TargetFramework)' == '$(_MauiDotNetTfm)'">
@@ -62,6 +64,11 @@
 	</Target>
 
 	<Import Project="$(MauiSrcDirectory)Workload\Shared\LibraryPacks.targets" />
+
+	<ItemGroup Condition="'$(IncludeFreeBSDNativeAssets)' == 'true'">
+		<PackageReference Update="Microsoft.Extensions.DependencyInjection"
+		                  Version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
+	</ItemGroup>
 
 	<Import Project="$(MauiSrcDirectory)PublicAPI.targets" />
 

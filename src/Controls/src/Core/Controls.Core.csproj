@@ -61,7 +61,8 @@
     <ProjectReference
       Include="..\..\..\Controls\src\BindingSourceGen\Controls.BindingSourceGen.csproj"
       OutputItemType="Analyzer"
-      ReferenceOutputAssembly="false" />
+      ReferenceOutputAssembly="false"
+      GlobalPropertiesToRemove="TargetFrameworks" />
   </ItemGroup>
 
   <ItemGroup>
